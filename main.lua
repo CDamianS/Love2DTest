@@ -1,3 +1,4 @@
+Number = 0
 _G.love = require("love")
 
 function love.load()
@@ -5,9 +6,10 @@ function love.load()
 end
 
 function love.update()
-  number = number + 1
+  Number = Number + 1
 end
 
 function love.draw()
-  love.graphics.print(number)
+  love.graphics.circle("fill",420,200,20)
+  love.graphics.print("hello world",200,245,100)
 end
