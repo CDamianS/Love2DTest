@@ -1,15 +1,19 @@
-Number = 0
 _G.love = require("love")
+_G.math = require("math")
 
 function love.load()
-  _G.number = 0
+  R=250
 end
 
 function love.update()
-  Number = Number + 1
 end
 
 function love.draw()
-  love.graphics.circle("fill",420,200,20)
-  love.graphics.print("hello world",200,245,100)
+	for y=-R,R,8 do
+		for x=-R,R,10 do
+			local dist=math.sqrt(x*x+y*y)
+			z = math.cos(dist/40-love.timer.getTime())*6
+			love.graphics.points(R+x,R+y-z)
+		end
+	end
 end
